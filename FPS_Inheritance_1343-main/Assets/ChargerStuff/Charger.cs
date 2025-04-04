@@ -38,7 +38,7 @@ public class Charger : Gun
 
     public void ChargeFire()
     {
-        if (!AttemptFire()) return;
+        //if (!AttemptFire()) return;
 
         float chargeMultiplier = Mathf.Clamp01(currentChargeTime / maxChargeTime);
         float finalDamage = 75 * chargeMultiplier;
@@ -48,8 +48,11 @@ public class Charger : Gun
         var b = Instantiate(bulletPrefab, gunBarrelEnd.transform.position, gunBarrelEnd.rotation);
         b.GetComponent<Projectile>().Initialize(finalDamage, finalSpeed, 2, knockback, null);
 
-        
+        Debug.Log("successfully shot"); 
         anim.SetTrigger("shoot");
+
+        //AttemptFire();
+
 
         elapsed = 0f;
         ammo -= 1;
