@@ -31,11 +31,12 @@ public class Charger : Gun
             isCharging = false;
             if (chargeEffect != null) chargeEffect.Stop();
 
-            ChargeFire(); // ✅ custom logic goes here
+            ChargeFire();
+            Debug.Log("Charging ended. Attempting to fire.");
         }
     }
 
-    private void ChargeFire()
+    public void ChargeFire()
     {
         if (!AttemptFire()) return;
 
@@ -44,11 +45,11 @@ public class Charger : Gun
         float finalSpeed = 12 + (15 * chargeMultiplier);
         float knockback = 3 + (2 * chargeMultiplier);
 
-        GameObject b = Instantiate(bulletPrefab, gunBarrelEnd.transform.position, gunBarrelEnd.rotation);
-        b.GetComponent<Projectile>().Initialize(finalSpeed, finalDamage, knockback, 25, null);
+        var b = Instantiate(bulletPrefab, gunBarrelEnd.transform.position, gunBarrelEnd.rotation);
+        b.GetComponent<Projectile>().Initialize(finalDamage, finalSpeed, 2, knockback, null);
 
-        if (anim != null)
-            anim.SetTrigger("shoot");
+        
+        anim.SetTrigger("shoot");
 
         elapsed = 0f;
         ammo -= 1;

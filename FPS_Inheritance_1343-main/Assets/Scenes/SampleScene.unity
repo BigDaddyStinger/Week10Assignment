@@ -313,7 +313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164913490}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000006407499}
-  m_LocalPosition: {x: 0, y: 0.078999996, z: -0.302}
+  m_LocalPosition: {x: -0, y: 0.078999996, z: -0.366}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -713,7 +713,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 487163690456666478, guid: 7738516f6a427f74c8c4a3e1d7e3c883, type: 3}
   anim: {fileID: 422822411}
   maxAmmo: 100
-  timeBetweenShots: 1
+  timeBetweenShots: 0.1
   isAutomatic: 0
   maxChargeTime: 3
   chargePowerMultiplier: 50
